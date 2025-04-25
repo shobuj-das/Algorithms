@@ -15,4 +15,3 @@ def checkPalindrome(number):
 
 number = int(input("enter number: "))
 print(checkPalindrome(number))
-
