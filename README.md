@@ -6,7 +6,8 @@
   
 - **Sorting Algorithms**
   - Bubble sort
-
+  - Selection sort
+  
 - **String Manipulation**
   - String reverse
   - Palindrome
