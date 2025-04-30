@@ -1,4 +1,4 @@
-# Algorithm implementation using Python
+### Algorithm implementation using Python
 
 - **Search Algorithms**
   - Binary Search
@@ -6,3 +6,7 @@
   
 - **Sorting Algorithms**
   - Bubble sort
+
+- **String Manipulation**
+  - String reverse
+  - Palindrome
