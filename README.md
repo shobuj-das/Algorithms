@@ -7,6 +7,7 @@
 - **Sorting Algorithms**
   - Bubble sort
   - Selection sort
+  - Insertion sort
   
 - **String Manipulation**
   - String reverse
