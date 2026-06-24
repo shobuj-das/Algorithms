@@ -12,3 +12,4 @@
 - **String Manipulation**
   - String reverse
   - Palindrome
+  - Anagram
