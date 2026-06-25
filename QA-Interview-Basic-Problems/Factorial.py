@@ -7,5 +7,11 @@ def factorial_using_loop(number):
         result *= i
     return result
 
+def factorial_using_recursive(number):
+    if number < 1:
+        return 1
+    return number * factorial_using_recursive(number-1)
+
 if __name__=="__main__":
     print(factorial_using_loop(9))
+    print(factorial_using_recursive(9))
