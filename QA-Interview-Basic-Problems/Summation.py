@@ -12,5 +12,13 @@ def all_digit_sum(number):
     
     return result
 
+def all_numbers_sum_of_array(arr):
+    result = 0
+    for x in arr:
+        result += x
+
+    return result
+
 if __name__== "__main__":
     print(all_digit_sum(12345))
+    print(all_numbers_sum_of_array([10,20,3,4,5,6]))
