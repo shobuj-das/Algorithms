@@ -34,7 +34,7 @@ if __name__=="__main__":
     # print(find_second_large_numebr([10,5,7,8,9,65,10,80]))
 
     # print(f"Large number: {(find_large_number([10,5,7,8,9,61,10,8]))}")
-    # print(f"Second large number: {find_second_large_numebr([10,5,7,8,9,65,10,80])}")
+    # print(f"Second large number: {find_second_large_number([10,5,7,8,9,65,10,80])}")
 
     number_list = []
     x = int(input("Enter a number: "))

@@ -1,4 +1,5 @@
 import math
+
 def is_prime_numbers(number):
     if number <= 1:
         return False
