@@ -46,7 +46,8 @@ def two_sum_using_bruteforce(arr, target):
                     return index1, index2
                 j-=1
         i+=1
-            
+
+    return "Not found"  # if loop finish, means not found 
         
 
 if __name__== "__main__":
