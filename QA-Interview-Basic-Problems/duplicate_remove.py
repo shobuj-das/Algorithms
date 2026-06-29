@@ -18,11 +18,10 @@ def remove_duplicate_from_same_array(arr):
     print(arr)
                 
 def duplicate_remove_from_string(str):
-    str_len = len(str)
     str_list = list(str)
-    for x in range(0,str_len):
+    for x in range(0,len(str_list)):
         y = x + 1
-        while y < str_len:
+        while y < len(str_list):
             if str_list[y] == str_list[x]:
                 str_list.pop(y)
             else:
@@ -37,4 +36,4 @@ def duplicate_remove_from_string(str):
 if __name__=="__main__":
     remove_duplicate_from_same_array([10,5,7,9,5,4,1,3,2,4,4,5,5,5,5,8])
     remove_duplicate_using_second_array([1,2,3,5,4,8,5,2,3,2,5,4,4,4,7,7,1,2])
-    duplicate_remove_from_string("aabbccdeff")
+    duplicate_remove_from_string("banana")
