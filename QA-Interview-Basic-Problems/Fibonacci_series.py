@@ -14,6 +14,15 @@ def fibonacci(n):
 
     return fib_list
 
+def finding_fibonacci_series_using_recursion(number):
+    if number < 0:
+        raise ValueError("Given number should be non-negative")
+    if not isinstance(number, int):
+        raise ValueError("number must be an interger")
+    if number == 0 or number == 1:
+        return 0
+    
+    print()
 
 if __name__ == "__main__":
     print(fibonacci(3))
