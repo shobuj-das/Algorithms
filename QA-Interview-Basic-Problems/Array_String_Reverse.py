@@ -1,3 +1,8 @@
+# 1. Array reverse 
+# 2. String reverse 
+# 3. 2D array reverse 
+
+
 # ----------- Array Reverse ---------------------------
 def array_reverse_using_same_array(arr):
     x = len(arr) - 1
@@ -30,7 +35,25 @@ def string_reverse(str):
     strList = "".join(strList)
     return strList
 
+def reverse_2D_array(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    print(f'total element in the matrix: {rows * cols}')
+
+    for i in range(cols):
+        for j in range(rows):
+            print(matrix[j][i],end=" ")
+        print("\n")
+
 if __name__=="__main__":
     print(array_reverse_using_same_array([1,2,3,4,5,6,7,8,9]))
     print(array_reverse_using_second_array([9,8,7,6,5,4,3,2,1]))
     print(string_reverse("abcdef"))
+
+    matrix = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12]
+    ]
+    print(matrix)
+    reverse_2D_array(matrix)
