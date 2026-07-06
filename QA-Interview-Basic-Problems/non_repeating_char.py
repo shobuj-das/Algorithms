@@ -17,8 +17,9 @@ def finding_first_not_repeating_character(string):
                     duplicateFound = True
                     break
         if not duplicateFound:
-            found_char =  string[i]
-            break
+            # found_char =  string[i]
+            # break
+            return string[i]
 
     return found_char
         
