@@ -1,6 +1,6 @@
 # 1. Array reverse 
 # 2. String reverse 
-# 3. 2D array reverse 
+# 3. 2D array reverse (transpose matrix)
 
 
 # ----------- Array Reverse ---------------------------
@@ -35,7 +35,9 @@ def string_reverse(str):
     strList = "".join(strList)
     return strList
 
-def reverse_2D_array(matrix):
+
+# ----------- 2D array Reverse ---------------------------
+def reverse_print_2D_array(matrix):
     rows = len(matrix)
     cols = len(matrix[0])
     print(f'total element in the matrix: {rows * cols}')
@@ -45,6 +47,19 @@ def reverse_2D_array(matrix):
             print(matrix[j][i],end=" ")
         print("\n")
 
+# ---------- transpose matrix -----------------------
+def reverse_2D_array(matrix, rows, cols):
+    transposeMatrix = []
+    
+    for c in range(cols):
+        rowArray = []
+        for r in range(rows):
+            rowArray.append(matrix[r][c])
+        transposeMatrix.append(rowArray)
+    
+    return transposeMatrix
+
+    
 if __name__=="__main__":
     print(array_reverse_using_same_array([1,2,3,4,5,6,7,8,9]))
     print(array_reverse_using_second_array([9,8,7,6,5,4,3,2,1]))
@@ -56,4 +71,8 @@ if __name__=="__main__":
         [9, 10, 11, 12]
     ]
     print(matrix)
-    reverse_2D_array(matrix)
+    reverse_print_2D_array(matrix)
+
+    transposeMatrix = reverse_2D_array(matrix=matrix, rows=3, cols=4)
+    for row in transposeMatrix:
+        print(row)
