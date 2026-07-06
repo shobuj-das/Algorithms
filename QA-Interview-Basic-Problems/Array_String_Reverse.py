@@ -18,7 +18,7 @@ def array_reverse_using_second_array(arr):
     rev_arr = []
     x = len(arr) - 1
     for i in range(0,len(arr)):
-        rev_arr.insert(i,arr[x])
+        rev_arr.append(arr[x])
         x -= 1
 
     return rev_arr
@@ -48,9 +48,11 @@ def reverse_print_2D_array(matrix):
         print("\n")
 
 # ---------- transpose matrix -----------------------
-def reverse_2D_array(matrix, rows, cols):
+def reverse_2D_array(matrix):
     transposeMatrix = []
-    
+    rows = len(matrix)
+    cols = len(matrix[0])
+
     for c in range(cols):
         rowArray = []
         for r in range(rows):
@@ -73,6 +75,6 @@ if __name__=="__main__":
     print(matrix)
     reverse_print_2D_array(matrix)
 
-    transposeMatrix = reverse_2D_array(matrix=matrix, rows=3, cols=4)
+    transposeMatrix = reverse_2D_array(matrix)
     for row in transposeMatrix:
         print(row)
