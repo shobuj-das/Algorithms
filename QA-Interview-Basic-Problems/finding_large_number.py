@@ -24,7 +24,7 @@ def find_second_large_number(arr):
             large_number = arr[i]
             large_number_index = i
         
-    arr.pop(large_number_index)
+    arr[large_number_index] = -99999
     #again assume , [when large number is removed, the second last number become the large number now]
     second_large_number = arr[0]
 
@@ -33,6 +33,19 @@ def find_second_large_number(arr):
             second_large_number = arr[i]
 
     return second_large_number
+def second_large_number_without_array_modify(arr):
+    first_large = None
+    second_large =  None
+
+    for num in arr:
+        if num > first_large:
+            first_large = num
+        if num < first_large and num > second_large:
+            second_large = num
+    
+    return second_large
+
+
 
 def finding_large_number_between_three(a,b,c):
     if a >= b and a >= c:
@@ -63,3 +76,5 @@ if __name__=="__main__":
 
     print(finding_large_number_between_three(5,5,4))
     print(finding_large_number_between_three_using_ternary_operator(5,5,4))
+    print("---")
+    print(second_large_number_without_array_modify([2,3,4,5,6,7]))
