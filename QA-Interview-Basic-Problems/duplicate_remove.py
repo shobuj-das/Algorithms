@@ -22,7 +22,7 @@ def duplicate_remove_from_string(str):
     for x in range(0,len(str_list)):
         y = x + 1
         while y < len(str_list):
-            if str_list[y] == str_list[x]:
+            if str_list[y].upper() == str_list[x].upper():
                 str_list.pop(y)
             else:
                 y += 1
@@ -36,4 +36,4 @@ def duplicate_remove_from_string(str):
 if __name__=="__main__":
     remove_duplicate_from_same_array([10,5,7,9,5,4,1,3,2,4,4,5,5,5,5,8])
     remove_duplicate_using_second_array([1,2,3,5,4,8,5,2,3,2,5,4,4,4,7,7,1,2])
-    duplicate_remove_from_string("banana")
+    duplicate_remove_from_string("BaNana")
