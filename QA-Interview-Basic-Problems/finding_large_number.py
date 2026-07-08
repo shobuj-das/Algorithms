@@ -33,15 +33,24 @@ def find_second_large_number(arr):
             second_large_number = arr[i]
 
     return second_large_number
+
 def second_large_number_without_array_modify(arr):
     first_large = None
     second_large =  None
 
     for num in arr:
-        if num > first_large:
+        if first_large is None:
             first_large = num
-        if num < first_large and num > second_large:
-            second_large = num
+            continue
+        elif num > first_large:
+            second_large = first_large
+            first_large = num
+        elif num < first_large:
+            if second_large is None:
+                second_large = num
+                continue
+            elif num > second_large:
+                second_large = num
     
     return second_large
 
@@ -76,5 +85,10 @@ if __name__=="__main__":
 
     print(finding_large_number_between_three(5,5,4))
     print(finding_large_number_between_three_using_ternary_operator(5,5,4))
-    print("---")
-    print(second_large_number_without_array_modify([2,3,4,5,6,7]))
+  
+    print(second_large_number_without_array_modify([]))
+    print(second_large_number_without_array_modify([5]))
+    print(second_large_number_without_array_modify([5, 5]))
+    print(second_large_number_without_array_modify([-10, -5, -20]))
+    print(second_large_number_without_array_modify([-5, -10]))
+    print(second_large_number_without_array_modify([10, 20, 5, 15, 25]))
