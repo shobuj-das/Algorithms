@@ -126,18 +126,18 @@ def count_letter(str):
 # --- using class object ---
 
 class CharacterCounter:
-    
+    counter = {}  # class level variable
     @staticmethod
     def character_counter(string):
-        counter = {}
+        # counter = {} # method level variable
         for ch in string:
             key = ch.upper()
-            if key not in counter:
-                counter[key] = 1
+            if key not in CharacterCounter.counter:
+                CharacterCounter.counter[key] = 1
             else:
-                counter[key] += 1
+                CharacterCounter.counter[key] += 1
 
-        return counter 
+        return CharacterCounter.counter 
         
 
 if __name__=="__main__":
