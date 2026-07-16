@@ -13,6 +13,7 @@ class ParkingLot:
                 self.open_slots[vehicle["slot"]-1] = 0
                 self.parked.remove(vehicle)
                 self.count -= 1
+                print("Vehicle removed")
                 break
         if not flag:
             print("Vehicle not found")
@@ -61,14 +62,17 @@ class ParkingLot:
                         "vehicle_type" : vehicle_type
                     }
                 )
+                print(f"Added vehicle to slot {slot_no}")
                 self.open_slots[slot_no - 1] = 1
                 self.count += 1
             else:
                 print("Vehicle already exist")
+        else:
+            print("No capacity")
 
 
 if __name__=="__main__":
-    park = ParkingLot(4)
+    park = ParkingLot(3)
 
     park.park_vehicle("DHK-101", "Shobuj", "Car")
     park.park_vehicle("DHK-102", "Shobuj", "Bike")
@@ -77,7 +81,13 @@ if __name__=="__main__":
     print(park.available_slots())
 
     print(park.search_vehicle("DHK-102"))
-    print(park.display_all_vehicle())
+    park.display_all_vehicle()
     park.park_vehicle("DHK-104", "Shobuj", "Bus")
-
+    park.display_all_vehicle()
     print(park.available_slots())
+
+    park.remove_vechicle("DHK-101")
+    print(park.available_slots())
+
+    park.park_vehicle("DHK-1040", "Shobuj", "Bus")
+    park.park_vehicle("DHK-1004", "Shobuj", "Bus")
