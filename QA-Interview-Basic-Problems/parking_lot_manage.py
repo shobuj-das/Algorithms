@@ -1,20 +1,22 @@
 class ParkingLot:
     def __init__(self,capacity):
         self.capacity = capacity
-
-    parked = []
-    count = 0
-
+        self.parked = []
+        self.count = 0
+        self.slots = [0] * capacity
+    
     def park_vehcile(self,reg_no, owner, vehicle_type):
         if self.parked <= self.capacity:
             if self.search_vehicle(reg_no=reg_no):
                 self.parked.append(
-                    {
+                    {   
+                        "slot" : 
                         "reg_no" : reg_no,
                         "owner" : owner,
                         "vehicle_type" : vehicle_type
                     }
                 )
+                self.count += 1
             else:
                 print("No capacity")
         
@@ -37,11 +39,17 @@ class ParkingLot:
                 break
         return flag
 
-    def available_slot():
-        pass
+    def available_slots(self):
+        j = 0
+        for i in self.slots:
+            if i == 0:
+                print(j,end=",")
+            j += 1
+        
 
     def display_all_vehicle():
         pass
+
 
 
     if __name__=="__main__":
