@@ -3,29 +3,15 @@ class ParkingLot:
         self.capacity = capacity
         self.parked = []
         self.count = 0
-        self.slots = [0] * capacity
-    
-    def park_vehcile(self,reg_no, owner, vehicle_type):
-        if self.parked <= self.capacity:
-            if self.search_vehicle(reg_no=reg_no):
-                self.parked.append(
-                    {   
-                        "slot" : 
-                        "reg_no" : reg_no,
-                        "owner" : owner,
-                        "vehicle_type" : vehicle_type
-                    }
-                )
-                self.count += 1
-            else:
-                print("No capacity")
+        self.open_slots: list = [0] * capacity
         
 
     def remove_vechicle(self, reg_no):
         flag = False
-        for vehicle in self.park_vehcile:
+        for vehicle in self.parked:
             if vehicle["reg_no"] == reg_no:
-                self.park_vehcile.remove(vehicle)
+                self.open_slots[vehicle["slot"]-1] = 0
+                self.parked.remove(vehicle)
                 self.count -= 1
                 break
         if not flag:
@@ -33,7 +19,7 @@ class ParkingLot:
 
     def search_vehicle(self, reg_no):
         flag = False
-        for vehicle in self.park_vehcile:
+        for vehicle in self.parked:
             if vehicle["reg_no"] == reg_no:
                 flag = True
                 break
@@ -41,21 +27,57 @@ class ParkingLot:
 
     def available_slots(self):
         slot = 0
-        for i in self.slots:
+        self.current_slots = []
+        for i in self.open_slots:
             if i == 0:
-                print(j,end=",")
+                self.current_slots.append((slot+1))
             slot += 1
+
+        return self.current_slots
         
     def get_a_slot(self):
         slot = 0
-        for i in self.slots:
+        for i in self.open_slots:
             if i == 0:
-                return slot
+                return (slot + 1)
             slot += 1
-    def display_all_vehicle():
-        pass
+
+    def display_all_vehicle(self):
+        if len(self.parked)>0:
+            for vehicle in self.parked:
+                print(vehicle)
+        else:
+            print("No vehicle found")
+
+    def park_vehicle(self,reg_no, owner, vehicle_type):
+        if self.count < self.capacity:
+            if not self.search_vehicle(reg_no=reg_no):
+                slot_no = self.get_a_slot()
+                self.parked.append(
+                    {   
+                        "slot" : slot_no,
+                        "reg_no" : reg_no,
+                        "owner" : owner,
+                        "vehicle_type" : vehicle_type
+                    }
+                )
+                self.open_slots[slot_no - 1] = 1
+                self.count += 1
+            else:
+                print("Vehicle already exist")
 
 
+if __name__=="__main__":
+    park = ParkingLot(4)
 
-    if __name__=="__main__":
+    park.park_vehicle("DHK-101", "Shobuj", "Car")
+    park.park_vehicle("DHK-102", "Shobuj", "Bike")
+    park.park_vehicle("DHK-103", "Shobuj", "Bus")
 
+    print(park.available_slots())
+
+    print(park.search_vehicle("DHK-102"))
+    print(park.display_all_vehicle())
+    park.park_vehicle("DHK-104", "Shobuj", "Bus")
+
+    print(park.available_slots())
