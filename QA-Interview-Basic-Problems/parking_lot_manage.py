@@ -2,13 +2,21 @@ class ParkingLot:
     def __init__(self,capacity):
         self.capacity = capacity
 
-    parked = 0
-    
+    parked = []
+    count = 0
+
     def park_vehcile(self,reg_no, owner, vehicle_type):
         if self.parked <= self.capacity:
-            self.registration_number = reg_no
-            self.owner_name = owner
-            self.park_vehcile = vehicle_type
+            self.parked.append(
+                {
+                    "reg_no" : reg_no,
+                    "owner" : owner,
+                    "vehicle_type" : vehicle_type
+                }
+            )
+        else:
+            print("No capacity")
+        
 
     def remove_vechicle(self, reg_no):
         pass
