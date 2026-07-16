@@ -40,13 +40,18 @@ class ParkingLot:
         return flag
 
     def available_slots(self):
-        j = 0
+        slot = 0
         for i in self.slots:
             if i == 0:
                 print(j,end=",")
-            j += 1
+            slot += 1
         
-
+    def get_a_slot(self):
+        slot = 0
+        for i in self.slots:
+            if i == 0:
+                return slot
+            slot += 1
     def display_all_vehicle():
         pass
 
