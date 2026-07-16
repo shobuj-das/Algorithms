@@ -19,7 +19,13 @@ class ParkingLot:
         
 
     def remove_vechicle(self, reg_no):
-        pass
+        flag = False
+        for vehicle in self.park_vehcile:
+            if vehicle["reg_no"] == reg_no:
+                self.park_vehcile.remove(vehicle)
+                break
+        if not flag:
+            print("Vehicle not found")
 
     def search_vehicle(self, reg_no):
         pass
