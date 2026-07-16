@@ -7,15 +7,16 @@ class ParkingLot:
 
     def park_vehcile(self,reg_no, owner, vehicle_type):
         if self.parked <= self.capacity:
-            self.parked.append(
-                {
-                    "reg_no" : reg_no,
-                    "owner" : owner,
-                    "vehicle_type" : vehicle_type
-                }
-            )
-        else:
-            print("No capacity")
+            if self.search_vehicle(reg_no=reg_no):
+                self.parked.append(
+                    {
+                        "reg_no" : reg_no,
+                        "owner" : owner,
+                        "vehicle_type" : vehicle_type
+                    }
+                )
+            else:
+                print("No capacity")
         
 
     def remove_vechicle(self, reg_no):
@@ -23,12 +24,18 @@ class ParkingLot:
         for vehicle in self.park_vehcile:
             if vehicle["reg_no"] == reg_no:
                 self.park_vehcile.remove(vehicle)
+                self.count -= 1
                 break
         if not flag:
             print("Vehicle not found")
 
     def search_vehicle(self, reg_no):
-        pass
+        flag = False
+        for vehicle in self.park_vehcile:
+            if vehicle["reg_no"] == reg_no:
+                flag = True
+                break
+        return flag
 
     def available_slot():
         pass
