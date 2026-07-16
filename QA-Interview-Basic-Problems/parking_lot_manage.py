@@ -1,3 +1,133 @@
+
+# ============================================================
+# Day 17 - Parking Lot Management System
+#
+# Difficulty:
+# Medium
+#
+# Concepts:
+# - OOP
+# - Classes
+# - Objects
+# - Dictionary
+# - List
+# - Exception Handling
+# - State Management
+#
+# ------------------------------------------------------------
+#
+# Problem Statement
+#
+# Design a ParkingLot class.
+#
+# The parking lot has a fixed capacity.
+#
+# Every parked car has:
+#
+# - Registration Number
+# - Owner Name
+# - Vehicle Type
+#
+# Vehicle Types:
+#
+# - Car
+# - Bike
+# - Truck
+#
+# ------------------------------------------------------------
+#
+# Implement the following methods:
+#
+# park_vehicle(reg_no, owner, vehicle_type)
+#
+# remove_vehicle(reg_no)
+#
+# search_vehicle(reg_no)
+#
+# available_slots()
+#
+# display_all_vehicles()
+#
+# ------------------------------------------------------------
+#
+# Rules
+#
+# 1. Registration number must be unique.
+#
+# 2. If parking is full,
+#    do not park the vehicle.
+#
+# 3. Removing a vehicle
+#    frees one parking slot.
+#
+# 4. Searching a non-existing
+#    vehicle should return None.
+#
+# 5. Invalid vehicle type
+#    should raise ValueError.
+#
+# ------------------------------------------------------------
+#
+# Example
+#
+# parking = ParkingLot(capacity=3)
+#
+# parking.park_vehicle(
+#     "DHA-1234",
+#     "Shobuj",
+#     "Car"
+# )
+#
+# parking.park_vehicle(
+#     "DHA-5678",
+#     "Rahim",
+#     "Bike"
+# )
+#
+# parking.available_slots()
+#
+# parking.remove_vehicle("DHA-1234")
+#
+# parking.search_vehicle("DHA-5678")
+#
+# parking.display_all_vehicles()
+#
+# ------------------------------------------------------------
+#
+# Bonus 1
+#
+# Count vehicles by type.
+#
+# Output:
+#
+# Car : 3
+# Bike : 2
+# Truck : 1
+#
+#
+# Bonus 2
+#
+# Find the owner
+# of a registration number.
+#
+#
+# Bonus 3 (Interview)
+#
+# Generate parking tickets.
+#
+# Ticket Number:
+#
+# PK-1001
+# PK-1002
+# PK-1003
+#
+# Automatically generate
+# a new ticket whenever
+# a vehicle is parked.
+#
+# ============================================================
+
+
 class ParkingLot:
     def __init__(self,capacity):
         self.capacity = capacity
@@ -14,6 +144,7 @@ class ParkingLot:
                 self.parked.remove(vehicle)
                 self.count -= 1
                 print("Vehicle removed")
+                flag = True
                 break
         if not flag:
             print("Vehicle not found")
@@ -91,3 +222,5 @@ if __name__=="__main__":
 
     park.park_vehicle("DHK-1040", "Shobuj", "Bus")
     park.park_vehicle("DHK-1004", "Shobuj", "Bus")
+
+    park.remove_vechicle("Dhk-1111")
