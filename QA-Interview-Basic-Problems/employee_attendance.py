@@ -82,7 +82,7 @@ class Employee:
         self.name = name
         self.department = department
 
-        self.is_checked_id = False
+        self.is_checked_in = False
         self.check_in_time = None
         self.check_out_time = None
 
@@ -108,8 +108,15 @@ class AttendanceSystem(Employee):
         if self.get_employee(employee_id=employee.employee_id):
             self.employee_list.append(employee)
 
-    def check_id(employee_id):
-        pass
+    def check_in(self,employee_id):
+        for emp in self.employee_list:
+            if emp.employee_id == employee_id:
+                if not emp.is_checked_in:
+                    emp.is_checked_in = True
+                    return
+        print("Employee id not registered")
+        return None
+            
 
     def check_out(employee_id):
         pass
