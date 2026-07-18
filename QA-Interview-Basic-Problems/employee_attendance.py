@@ -118,8 +118,16 @@ class AttendanceSystem(Employee):
         return None
             
 
-    def check_out(employee_id):
-        pass
+    def check_out(self,employee_id):
+        for emp in self.employee_list:
+            if emp.employee_id == employee_id:
+                if emp.is_checked_in:
+                    emp.is_checked_in = False
+                else:
+                    print("Employee already checked in")
+                return
+        print("Employee id not registered")
+        return None
 
     def display_all_employees():
         pass
