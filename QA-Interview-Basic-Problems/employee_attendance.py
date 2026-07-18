@@ -76,31 +76,37 @@
 #
 # ============================================================
 
-
 class Employee:
+    def __int__(self,employee_id, name, department):
+        self.employee_id = employee_id
+        self.name = name
+        self.department = department
 
-    # def __init__(self, employee_id,name,department):
-    #     self.employee_id = employee_id
-    #     self.name = name
-    #     self.department = department
-
-    employee_list = []
-    def add_employee(self, employee):
-        self.employee_list.append(
-            "employee_id" : self.employee_id,
-            "name" : self.name
-        )
+        self.is_checked_id = False
+        self.check_in_time = None
+        self.check_out_time = None
 
 class AttendanceSystem(Employee):
-    
-    pass
+    def __init__(self):
+        employee_list = []
 
+    def add_employee(self, employee):
+        super(employee)
+
+    def check_id(employee_id):
+        pass
+
+    def check_out(employee_id):
+        pass
+
+    def display_all_employees():
+        pass
+
+    def attendance_report():
+        pass 
 
 if __name__ == "__main__":
-    attendance_system = AttendanceSystem
-    attendance_system.add_employee(
-        
-    )
-
-
+   attendance = AttendanceSystem
+   
+   emp1 = Employee(101, "Shobuj", "QA")
     
