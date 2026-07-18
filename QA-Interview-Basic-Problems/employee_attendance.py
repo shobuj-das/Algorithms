@@ -77,7 +77,7 @@
 # ============================================================
 
 class Employee:
-    def __int__(self,employee_id, name, department):
+    def __int__(self,employee_id:int, name:str, department:str):
         self.employee_id = employee_id
         self.name = name
         self.department = department
@@ -86,12 +86,27 @@ class Employee:
         self.check_in_time = None
         self.check_out_time = None
 
+    def __str__(self):
+        return(
+            f"ID: {self.employee_id} | "
+            f"Name: {self.name} | "
+            f"Department: {self.department}"
+        )
+    
+
 class AttendanceSystem(Employee):
     def __init__(self):
-        employee_list = []
+        self.employee_list = []
 
+    def get_employee(self, employee_id):
+        for emp in self.employee_list:
+            if employee_id == emp.employee_id:
+                return emp
+        return None
+    
     def add_employee(self, employee):
-        super(employee)
+        if self.get_employee(employee_id=employee.employee_id):
+            self.employee_list.append(employee)
 
     def check_id(employee_id):
         pass
@@ -107,6 +122,6 @@ class AttendanceSystem(Employee):
 
 if __name__ == "__main__":
    attendance = AttendanceSystem
-   
+
    emp1 = Employee(101, "Shobuj", "QA")
     
