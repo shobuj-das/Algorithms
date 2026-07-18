@@ -76,6 +76,8 @@
 #
 # ============================================================
 
+import datetime
+
 class Employee:
     def __int__(self,employee_id:int, name:str, department:str):
         self.employee_id = employee_id
@@ -113,6 +115,7 @@ class AttendanceSystem(Employee):
             if emp.employee_id == employee_id:
                 if not emp.is_checked_in:
                     emp.is_checked_in = True
+                    emp.check_in_time = datetime.now()
                     return
         print("Employee id not registered")
         return None
@@ -123,6 +126,7 @@ class AttendanceSystem(Employee):
             if emp.employee_id == employee_id:
                 if emp.is_checked_in:
                     emp.is_checked_in = False
+                    emp.check_out_time = datetime.now()
                 else:
                     print("Employee already checked in")
                 return
@@ -134,7 +138,7 @@ class AttendanceSystem(Employee):
             print(emp)
 
     def attendance_report():
-        pass 
+         
 
 if __name__ == "__main__":
    attendance = AttendanceSystem
