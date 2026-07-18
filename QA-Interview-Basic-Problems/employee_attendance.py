@@ -129,8 +129,9 @@ class AttendanceSystem(Employee):
         print("Employee id not registered")
         return None
 
-    def display_all_employees():
-        pass
+    def display_all_employees(self):
+        for emp in self.employee_list:
+            print(emp)
 
     def attendance_report():
         pass 
