@@ -102,13 +102,15 @@ class AttendanceSystem:
 
     def get_employee(self, employee_id):
         for emp in self.employee_list:
-            if employee_id == emp.employee_id:
+            if emp.employee_id == employee_id:
                 return emp
         return None
     
     def add_employee(self, employee):
         if not self.get_employee(employee_id=employee.employee_id):
             self.employee_list.append(employee)
+        else:
+            print("Employee already exist")
 
     def check_in(self,employee_id):
         for emp in self.employee_list:
@@ -128,12 +130,15 @@ class AttendanceSystem:
                     emp.is_checked_in = False
                     emp.check_out_time = datetime.datetime.now()
                 else:
-                    print("Employee already checked in")
+                    print("Employee already checked out")
                 return
         print("Employee id not registered")
         return None
 
     def display_all_employees(self):
+        if not self.employee_list:
+            print("No employees found")
+            return
         for emp in self.employee_list:
             print(emp)
 
