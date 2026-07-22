@@ -95,16 +95,23 @@ class Book:
 
 class Library:
     def __init__(self):
-        books_list = []
+        self.books_list = []
     
-    def add_books(self):
-        pass
+    def add_books(self,book):
+        if not self.search_book(book.book_id):
+            self.books_list.append(book)
+        else:
+            print("Book already exist in the list")
+
 
     def remove_book(self, book_id):
         pass
 
     def search_book(self, book_id):
-        pass
+        for book_item in self.books_list:
+            if book_item.book_id == book_id:
+                return book_item
+        return None
 
     def issue_book(self, book_id, student_name):
         pass
