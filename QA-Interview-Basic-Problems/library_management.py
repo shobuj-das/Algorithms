@@ -83,20 +83,22 @@
 #
 # ============================================================
 
+import datetime
 
 class Book:
     def __init__(self,book_id,title,author,is_issued, issued_to):
         self.book_id = book_id
         self.title = title
         self.author = author
-        self.is_issued = is_issued
-        self.issued_to = issued_to
+        self.is_issued = False
+        self.issued_to = None
 
 
 class Library:
     def __init__(self):
         self.books_list = []
-    
+        self.book_issue_list = []
+
     def add_books(self,book):
         if not self.search_book(book.book_id):
             self.books_list.append(book)
@@ -105,9 +107,9 @@ class Library:
 
 
     def remove_book(self, book_id):
-        remove_book = self.search_book(book_id)
+        self.book_item = self.search_book(book_id)
         if self.remove_book:
-            self.books_list.remove(self.remove_book)
+            self.books_list.remove(self.book_item)
         else:
             print("Book not found")
 
@@ -118,7 +120,15 @@ class Library:
         return None
 
     def issue_book(self, book_id, student_name):
-        pass
+        self.book_item = self.search_book(book_id)
+        if not self.book_item:
+            self.book_issue_list.append(
+                {
+                    "book_id": book_id,
+                    "student_name" : student_name,
+                    "date" : datetime.datetime.now()
+                }
+            )
 
     def return_book(self, book_id):
         pass
