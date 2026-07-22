@@ -105,7 +105,11 @@ class Library:
 
 
     def remove_book(self, book_id):
-        pass
+        remove_book = self.search_book(book_id)
+        if self.remove_book:
+            self.books_list.remove(self.remove_book)
+        else:
+            print("Book not found")
 
     def search_book(self, book_id):
         for book_item in self.books_list:
