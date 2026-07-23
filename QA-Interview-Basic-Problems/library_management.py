@@ -86,12 +86,13 @@
 import datetime
 
 class Book:
-    def __init__(self,book_id,title,author,is_issued, issued_to):
+    def __init__(self,book_id,title,author):
         self.book_id = book_id
         self.title = title
         self.author = author
+
         self.is_issued = False
-        self.issued_to = None
+        # self.issued_to = None
 
 
 class Library:
@@ -126,12 +127,23 @@ class Library:
                 {
                     "book_id": book_id,
                     "student_name" : student_name,
-                    "date" : datetime.datetime.now()
+                    "issue_date" : datetime.datetime.now(),
+                    "return_date": None
                 }
             )
+        else:
+            print("Book not found")
 
     def return_book(self, book_id):
-        pass
+        for book in self.books_list:
+            if book.book_id == book_id and book.is_issued == True:
+                book.is_issued = False
+
+                for book in self.book_issue_list:
+                    if book["book_id"] == book_id and book["return_date"] is None:
+                        book["return_date"] = datetime.datetime.now()
+
+                
 
     def display_all_books(self,book_id):
         pass
