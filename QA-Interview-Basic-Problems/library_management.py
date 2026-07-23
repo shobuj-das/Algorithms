@@ -151,7 +151,9 @@ class Library:
 
 
     def display_available_books(self):
-        pass
+        for book in self.book_list:
+            if book.is_issued is False:
+                print(book)
 
     
 
