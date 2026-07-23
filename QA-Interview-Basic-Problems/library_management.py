@@ -94,7 +94,13 @@ class Book:
         self.is_issued = False
         # self.issued_to = None
 
-
+    def __str__(self):
+        return(
+            f"Book ID: {self.book_id} | "
+            f"Title: {self.title} | "
+            f"Author : {self.author}"
+        )
+    
 class Library:
     def __init__(self):
         self.book_list = []
@@ -122,15 +128,19 @@ class Library:
 
     def issue_book(self, book_id, student_name):
         self.book_item = self.search_book(book_id)
-        if not self.book_item:
-            self.book_issue_list.append(
-                {
-                    "book_id": book_id,
-                    "student_name" : student_name,
-                    "issue_date" : datetime.datetime.now(),
-                    "return_date": None
-                }
-            )
+        if self.book_item:
+            if self.book_item.is_issued is False:
+                for book in self.book_list:
+                    if book.book_id == book_id:
+                        book.is_issued = True
+                self.book_issue_list.append(
+                    {
+                        "book_id": book_id,
+                        "student_name" : student_name,
+                        "issue_date" : datetime.datetime.now(),
+                        "return_date": None
+                    }
+                )
         else:
             print("Book not found")
 
@@ -145,12 +155,14 @@ class Library:
 
                 
 
-    def display_all_books(self,book_id):
+    def display_all_books(self):
+        print("--- Showing All Books---")
         for book in self.book_list:
             print(book)
 
 
     def display_available_books(self):
+        print("--- Showing all avaiable books ---")
         for book in self.book_list:
             if book.is_issued is False:
                 print(book)
@@ -158,4 +170,23 @@ class Library:
     
 
 if __name__=="__main__":
-    pass
+    b1 = Book(101,"Python","John")
+    b2 = Book(102, "Java", "Doe")
+    b3 = Book(103, "PHP", "BCK KU")
+
+    library = Library()
+
+    library.add_books(b1)
+    library.add_books(b2)
+    library.add_books(b3)
+
+    library.display_all_books()
+
+    library.issue_book(101, "Shobuj")
+    library.display_available_books()
+
+    library.issue_book(103, "Karim")
+    library.display_available_books()
+    library.return_book(101)
+    library.display_available_books()
+    
