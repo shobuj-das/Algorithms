@@ -97,12 +97,12 @@ class Book:
 
 class Library:
     def __init__(self):
-        self.books_list = []
+        self.book_list = []
         self.book_issue_list = []
 
     def add_books(self,book):
         if not self.search_book(book.book_id):
-            self.books_list.append(book)
+            self.book_list.append(book)
         else:
             print("Book already exist in the list")
 
@@ -110,12 +110,12 @@ class Library:
     def remove_book(self, book_id):
         self.book_item = self.search_book(book_id)
         if self.remove_book:
-            self.books_list.remove(self.book_item)
+            self.book_list.remove(self.book_item)
         else:
             print("Book not found")
 
     def search_book(self, book_id):
-        for book_item in self.books_list:
+        for book_item in self.book_list:
             if book_item.book_id == book_id:
                 return book_item
         return None
@@ -135,7 +135,7 @@ class Library:
             print("Book not found")
 
     def return_book(self, book_id):
-        for book in self.books_list:
+        for book in self.book_list:
             if book.book_id == book_id and book.is_issued == True:
                 book.is_issued = False
 
@@ -146,7 +146,9 @@ class Library:
                 
 
     def display_all_books(self,book_id):
-        pass
+        for book in self.book_list:
+            print(book)
+
 
     def display_available_books(self):
         pass
